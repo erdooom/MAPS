@@ -70,3 +70,8 @@ samples/spmv/data/*
 !samples/spmv/data/README.txt
 samples/spmv/Release/*
 x64/
+
+packages/*
+!packages/repositories.config
+win/gtest/*
+!win/gtest/Add gtest Sources and Project File Here

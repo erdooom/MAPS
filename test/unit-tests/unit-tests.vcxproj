@@ -185,9 +185,6 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\win\gflags\gflags.vcxproj">
-      <Project>{ab25202b-854f-4abc-86e1-424ff362313d}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\..\win\gtest\msvc\gtest.vcxproj">
       <Project>{c8f6c172-56f2-4e76-b5fa-c3b423b31be7}</Project>
     </ProjectReference>
