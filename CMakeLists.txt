@@ -61,8 +61,10 @@ if(NOT GTEST_FOUND)
 endif()
 
 cuda_add_executable(unit-tests test/unit-tests/main.cpp
+                    test/unit-tests/block_matmul_test.cu
                     test/unit-tests/block_perftest.cu
                     test/unit-tests/block_test.cu
+                    test/unit-tests/constant_boundary_test.cu
                     test/unit-tests/input_common_test.cu
                     test/unit-tests/scheduler_test.cu
                     test/unit-tests/segmentation_test.cu
@@ -75,8 +77,10 @@ target_link_libraries(unit-tests gtest pthread)
 cuda_add_cublas_to_target(unit-tests)
 
 GTEST_ADD_TESTS(unit-tests test/unit-tests/main.cpp
+                test/unit-tests/block_matmul_test.cu
                 test/unit-tests/block_perftest.cu
                 test/unit-tests/block_test.cu
+                test/unit-tests/constant_boundary_test.cu
                 test/unit-tests/input_common_test.cu
                 test/unit-tests/scheduler_test.cu
                 test/unit-tests/segmentation_test.cu

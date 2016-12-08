@@ -39,16 +39,18 @@ namespace maps
     template<typename T, int BLOCK_WIDTH, int BLOCK_HEIGHT, int BLOCK_DEPTH, 
              int IPX, int IPY, int IPZ, int CHUNKX, int CHUNKY, int CHUNKZ,
              int XSTRIDE, typename BorderBehavior, 
+             typename DimensionOrdering,
              typename GlobalIOScheme, bool MULTI_GPU>
     class BlockIterator<T, 1, 0, BLOCK_WIDTH, BLOCK_HEIGHT, BLOCK_DEPTH, IPX, 
                         IPY, IPZ, CHUNKX, CHUNKY, CHUNKZ, XSTRIDE, 
-                        BorderBehavior, GlobalIOScheme, MULTI_GPU>
+                        BorderBehavior, DimensionOrdering, GlobalIOScheme, 
+			MULTI_GPU>
       : public std::iterator<std::input_iterator_tag, T>
     {
     protected:
         typedef Block<T, 1, 0, BLOCK_WIDTH, BLOCK_HEIGHT, BLOCK_DEPTH, IPX, 
                       IPY, IPZ, BorderBehavior, CHUNKX, CHUNKY, CHUNKZ,
-                      GlobalIOScheme, MULTI_GPU> Parent;
+                      DimensionOrdering, GlobalIOScheme, MULTI_GPU> Parent;
 
         const Parent& m_parent;
         int m_id;
@@ -110,18 +112,20 @@ namespace maps
     template<typename T, int PRINCIPAL_DIM, int BLOCK_WIDTH, int BLOCK_HEIGHT, 
              int BLOCK_DEPTH, int IPX, int IPY, int IPZ,
              int CHUNKX, int CHUNKY, int CHUNKZ, int XSTRIDE,
-             typename BorderBehavior, typename GlobalIOScheme, 
+             typename BorderBehavior, typename DimensionOrdering,
+	     typename GlobalIOScheme, 
              bool MULTI_GPU>
     class BlockIterator<T, 2, PRINCIPAL_DIM, BLOCK_WIDTH, BLOCK_HEIGHT, 
                         BLOCK_DEPTH, IPX, IPY, IPZ, CHUNKX, CHUNKY, CHUNKZ, 
-                        XSTRIDE, BorderBehavior, GlobalIOScheme, MULTI_GPU>
+                        XSTRIDE, BorderBehavior, DimensionOrdering,
+			GlobalIOScheme, MULTI_GPU>
         : public std::iterator<std::input_iterator_tag, T>
     {
     protected:
         typedef Block<T, 2, PRINCIPAL_DIM, BLOCK_WIDTH, BLOCK_HEIGHT, 
                       BLOCK_DEPTH, IPX, IPY, IPZ, BorderBehavior, 
                       CHUNKX, CHUNKY, CHUNKZ,
-                      GlobalIOScheme, MULTI_GPU> Parent;
+                      DimensionOrdering, GlobalIOScheme, MULTI_GPU> Parent;
 
         const Parent& m_parent;
         int m_id;
